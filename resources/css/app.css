@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+
+@theme {
+    --font-sans: 'Quicksand', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer base {
+    body {
+        @apply selection:bg-violet-200 selection:text-violet-900;
+    }
+}
+
+@layer components {
+    .pagination nav {
+        @apply flex justify-center;
+    }
+
+    .pagination nav > div:first-child {
+        @apply hidden;
+    }
+
+    .pagination nav > div:last-child {
+        @apply flex gap-2;
+    }
+
+    .pagination span,
+    .pagination a {
+        @apply inline-flex h-10 min-w-10 items-center justify-center rounded-xl px-3 text-sm font-bold transition;
+    }
+
+    .pagination a {
+        @apply bg-white text-violet-600 ring-1 ring-violet-100 hover:bg-violet-50;
+    }
+
+    .pagination span[aria-current='page'] span,
+    .pagination span[aria-disabled='true'] span {
+        @apply bg-violet-500 text-white shadow-md;
+    }
+
+    .pagination span[aria-disabled='true'] span {
+        @apply bg-slate-100 text-slate-400 shadow-none;
+    }
+}
